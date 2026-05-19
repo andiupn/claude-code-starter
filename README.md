@@ -114,7 +114,7 @@ LITE version dibatasi 3 agents, 6 skills, 1 preset. Untuk fitur lengkap:
 |---|---|
 | 3 agents | 5 agents (+ planner, security-reviewer) |
 | 6 skills | 17 skills (+ knowledge mgmt, stack-debug, etc.) |
-| 1 preset (generic) | 9 presets (PHP, Node, Next.js, Flutter, RN, dll) |
+| 1 preset (generic) | 10 presets (PHP, Node, Next.js, Flutter, RN, Yii, dll) |
 | 3 MCP servers | 6 MCP servers |
 | No hooks | Hooks (env-guard, tsc-check) |
 | Simple struktur | Status-first multi-project (active/staging/archive) |

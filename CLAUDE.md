@@ -87,7 +87,7 @@ Customize per language project Anda. Beberapa default umum:
 
 ## Want More?
 
-LITE version ini sengaja minimal untuk pemula. Untuk fitur lengkap (9 stack presets, security review agent, planner, knowledge harvesting, wiki management), upgrade ke PRO version:
+LITE version ini sengaja minimal untuk pemula. Untuk fitur lengkap (10 stack presets, security review agent, planner, knowledge harvesting, wiki management), upgrade ke PRO version:
 
 👉 **[Get PRO at kuncimu.com](https://kuncimu.com)** — hanya $1-5
 

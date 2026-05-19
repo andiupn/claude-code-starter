@@ -53,6 +53,6 @@ depend on community support. If this template saved you time:
 
 ## Want More Features?
 
-LITE Edition adalah versi terbatas (3 agents, 6 skills, 1 preset). Untuk fitur lengkap (5 agents, 17 skills, 9 stack presets, hooks, knowledge management):
+LITE Edition adalah versi terbatas (3 agents, 6 skills, 1 preset). Untuk fitur lengkap (5 agents, 17 skills, 10 stack presets, hooks, knowledge management):
 
 👉 **[Get PRO Edition at kuncimu.com](https://kuncimu.com)** — hanya $1-5

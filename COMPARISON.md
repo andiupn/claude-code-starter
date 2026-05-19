@@ -5,7 +5,7 @@
 ## TL;DR
 
 - **LITE (gratis):** Cukup untuk single-project sederhana. 3 agents, 6 skills, struktur minimal.
-- **PRO ($1–$5):** Untuk yang serius — multi-project workspace, 5 agents, 17 skills, 9 stack presets, knowledge management.
+- **PRO ($1–$5):** Untuk yang serius — multi-project workspace, 5 agents, 17 skills, 10 stack presets, knowledge management.
 
 ## Feature Matrix
 
@@ -37,13 +37,14 @@
 | `/wiki-lint` (validate wiki) | ❌ | ✅ |
 | `/memory-promote` (parent workspace) | ❌ | ✅ |
 | | | |
-| **Stack Presets (`/init-project`)** | 1 | 9 |
+| **Stack Presets (`/init-project`)** | 1 | 10 |
 | `generic` | ✅ | ✅ |
 | `web-php-laragon` (Windows) | ❌ | ✅ |
 | `web-php-linux` (Docker) | ❌ | ✅ |
 | `web-node` (Express/Fastify) | ❌ | ✅ |
 | `web-nextjs` (Next.js + Vercel) | ❌ | ✅ |
-| `web-yii-1` / `web-yii-2` | ❌ | ✅ |
+| `web-yii-1` (Yii 1.1.x) | ❌ | ✅ |
+| `web-yii-2` (Yii 2.x) | ❌ | ✅ |
 | `mobile-rn` (React Native) | ❌ | ✅ |
 | `mobile-flutter` | ❌ | ✅ |
 | `multi-project-root` (workspace root) | ❌ | ✅ |
