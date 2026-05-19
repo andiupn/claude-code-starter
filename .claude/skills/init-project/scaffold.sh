@@ -420,36 +420,55 @@ if [[ "$IS_CHILD" == "true" ]]; then
     PARENT_ROOT_JSON="\"$DETECTED_PARENT\""
 fi
 
-cat > "$LOCK_PATH" <<EOF
-{
-  "scaffold_version": "1.1",
-  "date": "$DATE_INIT",
-  "preset": "$PRESET",
-  "project_name": "$PROJECT_NAME",
-  "project_root": "$PROJECT_ROOT",
-  "is_multi_project_root": $IS_MULTI_ROOT,
-  "is_child": $IS_CHILD_JSON,
-  "inherits_from": $INHERITS_FROM_JSON,
-  "parent_root": $PARENT_ROOT_JSON,
-  "variables": {
-    "PROJECT_NAME": "$PROJECT_NAME",
-    "PROJECT_ROOT": "$PROJECT_ROOT",
-    "PROJECT_TYPE": "$PROJECT_TYPE",
-    "STACK_PRESET": "$PRESET",
-    "FILESYSTEM_SCOPE": "$FS_SCOPE",
-    "SERVER_ROOT": "$SERVER_ROOT",
-    "LOG_DIR": "$LOG_DIR",
-    "DB_TYPE": "$DB_TYPE",
-    "DB_VERSION": "$DB_VERSION",
-    "DB_DSN": "$DB_DSN",
-    "NODE_PKG_MANAGER": "$NODE_PKG_MANAGER",
-    "MOBILE_PLATFORM": "$MOBILE_PLATFORM",
-    "DATE_INIT": "$DATE_INIT",
-    "USER_HOME": "$USER_HOME",
-    "PARENT_ROOT": "$PARENT_ROOT"
-  }
-}
-EOF
+jq -n \
+  --arg scaffold_version "1.1" \
+  --arg date "$DATE_INIT" \
+  --arg preset "$PRESET" \
+  --arg project_name "$PROJECT_NAME" \
+  --arg project_root "$PROJECT_ROOT" \
+  --argjson is_multi_project_root "$IS_MULTI_ROOT" \
+  --argjson is_child "$IS_CHILD_JSON" \
+  --argjson inherits_from "$INHERITS_FROM_JSON" \
+  --argjson parent_root "$PARENT_ROOT_JSON" \
+  --arg PROJECT_TYPE "$PROJECT_TYPE" \
+  --arg FILESYSTEM_SCOPE "$FS_SCOPE" \
+  --arg SERVER_ROOT "$SERVER_ROOT" \
+  --arg LOG_DIR "$LOG_DIR" \
+  --arg DB_TYPE "$DB_TYPE" \
+  --arg DB_VERSION "$DB_VERSION" \
+  --arg DB_DSN "$DB_DSN" \
+  --arg NODE_PKG_MANAGER "$NODE_PKG_MANAGER" \
+  --arg MOBILE_PLATFORM "$MOBILE_PLATFORM" \
+  --arg USER_HOME "$USER_HOME" \
+  --arg PARENT_ROOT "$PARENT_ROOT" \
+  '{
+    scaffold_version: $scaffold_version,
+    date: $date,
+    preset: $preset,
+    project_name: $project_name,
+    project_root: $project_root,
+    is_multi_project_root: $is_multi_project_root,
+    is_child: $is_child,
+    inherits_from: $inherits_from,
+    parent_root: $parent_root,
+    variables: {
+      PROJECT_NAME: $project_name,
+      PROJECT_ROOT: $project_root,
+      PROJECT_TYPE: $PROJECT_TYPE,
+      STACK_PRESET: $preset,
+      FILESYSTEM_SCOPE: $FILESYSTEM_SCOPE,
+      SERVER_ROOT: $SERVER_ROOT,
+      LOG_DIR: $LOG_DIR,
+      DB_TYPE: $DB_TYPE,
+      DB_VERSION: $DB_VERSION,
+      DB_DSN: $DB_DSN,
+      NODE_PKG_MANAGER: $NODE_PKG_MANAGER,
+      MOBILE_PLATFORM: $MOBILE_PLATFORM,
+      DATE_INIT: $date,
+      USER_HOME: $USER_HOME,
+      PARENT_ROOT: $PARENT_ROOT
+    }
+  }' > "$LOCK_PATH"
 
 ok "scaffold.lock.json written (v1.1)"
 
