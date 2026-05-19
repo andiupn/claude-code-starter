@@ -1,0 +1,31 @@
+# Experiment artifacts
+experiments/
+
+# Knowledge wiki — excluded agar tidak flood context saat code review
+# Akses manual via Read jika butuh entry spesifik
+.claude/wiki/
+
+# Memory dan logs
+.claude/memory/
+.claude/activity.txt
+.claude/session-log.txt
+
+# Project lifecycle — tidak perlu di-index agent
+archive/
+artifacts/
+
+# Research & Plans archive — riset/plan lama, akses manual jika butuh
+docs/research/_archive/
+docs/plans/_archive/
+
+# Task archive — task done per bulan, akses manual jika butuh history
+docs/tasks/_archive/
+
+# Binary dan build artifacts
+*.pyc
+__pycache__/
+node_modules/
+.venv/
+dist/
+build/
+*.log

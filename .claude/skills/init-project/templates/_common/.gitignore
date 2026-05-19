@@ -1,0 +1,49 @@
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+.npm
+
+# Local development
+.DS_Store
+.env
+.env.local
+*.log
+
+# Claude Code
+.claude/activity.txt
+.claude/session-log.txt
+.claude/settings.local.json
+.claude/memory/*.txt
+.claude/memory/*.log
+
+# Experiments (local/temporary)
+experiments/**/node_modules/
+experiments/**/.venv/
+experiments/**/__pycache__/
+experiments/**/*.log
+
+# Build artifacts
+dist/
+build/
+*.o
+*.so
+*.a

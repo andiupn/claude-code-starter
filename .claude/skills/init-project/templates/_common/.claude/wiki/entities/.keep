@@ -1,0 +1,4 @@
+# Entity notes directory
+# One file per entity: services, modules, external APIs, databases, people
+# Format: YYYY-MM-DD-name.md OR just name.md
+# Link with [[entities/name]] syntax from other wiki files

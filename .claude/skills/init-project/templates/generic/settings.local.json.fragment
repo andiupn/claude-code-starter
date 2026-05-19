@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)"
+    ],
+    "additionalDirectories": []
+  }
+}

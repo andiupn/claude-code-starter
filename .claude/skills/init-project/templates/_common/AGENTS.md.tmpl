@@ -1,0 +1,150 @@
+# AGENTS.md
+
+> AI Agent Instructions untuk **{{PROJECT_NAME}}**. Multi-tool: GitHub Copilot, Cursor, Kiro, Antigravity, Claude, Junie, Codex, Trae, Windsurf, Qoder, dan lainnya.
+
+*Stats: 0 entries (0 gotchas, 0 patterns, 0 decisions, 0 context, 0 config, 0 learnings, 0 errors, 0 implementation, 0 optimization, 0 test)*
+
+---
+
+## 🌍 Prinsip Multi-Project
+
+> **PRINSIP MULTI PROJECT:** Aturan ini adalah baseline global. Saat dipakai di project tertentu, boleh berkembang dengan aturan spesifik tanpa merusak prinsip umum di sini.
+
+---
+
+## 📋 Project Overview
+
+**Project:** {{PROJECT_NAME}}
+**Type:** {{PROJECT_TYPE}}
+**Stack Preset:** {{STACK_PRESET}}
+**Initialized:** {{DATE_INIT}}
+
+TODO: Isi project description, business context, key contacts.
+
+---
+
+## 🧾 Urutan Prioritas Aturan (Jika Ada Konflik)
+
+1. **AGENTS.md** (dokumen utama / SSOT — file ini)
+2. **.agent/context/session-init.md** (protokol inisialisasi sesi)
+3. **.agent/workflows/** (workflow operasional)
+4. **Rules editor workspace** (`.cursor/`, `.kiro/`, `.github/`) sebagai ringkasan/adapter editor
+5. **Laporan test** di `test/reports/` sebagai bukti status terakhir
+
+---
+
+## 🔒 Root Rules + Controlled Nested Rules Policy
+
+- **Source of truth wajib:** rules di root workspace tetap prioritas utama.
+- **Nested rules di subproject diperbolehkan** untuk konteks lokal project, selama **tidak menimpa** aturan utama root.
+- Jika ada konflik, agent **wajib mengikuti root rules**.
+- Untuk VS Code Copilot: tambahkan `"chat.useNestedAgentsMdFiles": true` di settings.
+
+---
+
+## 🛠️ Tech Stack & Environment
+
+> Detail versi dan profile di `.agent/context/environment.json`.
+
+**Stack:** {{STACK_PRESET}} | **Project Root:** `{{PROJECT_ROOT}}`
+
+TODO: Isi versi runtime, DB connections, external services yang digunakan.
+
+---
+
+## 🤖 Editor-Specific MCP Support
+
+| MCP Server | Antigravity | Copilot | Cursor | Kiro | Windsurf | Qoder | Junie | Trae | Claude |
+|---|---|---|---|---|---|---|---|---|---|
+| github | — | — | — | — | — | — | — | — | ✅ |
+| filesystem | — | — | — | — | — | — | — | — | ✅ |
+| claude-in-chrome | — | — | — | — | — | — | — | — | ✅ |
+
+TODO: Update matrix saat menambah MCP server baru. ✅ = works, ❌ = hangs/broken, ⚠️ = check config.
+
+---
+
+## 📝 Conventions
+
+- Bahasa output user-facing: **Indonesia**
+- Code, file path, technical terms: **English**
+- Tabel markdown untuk inventory
+- Emoji section headers untuk visual scanning
+- Compact threshold: {{COMPACT_THRESHOLD_PCT}}% (bukan default 80%)
+
+---
+
+<!-- BEGIN: gotchas -->
+## ⚠️ Critical Gotchas
+
+<!-- END: gotchas -->
+
+<!-- BEGIN: patterns -->
+## 🎨 Patterns
+
+<!-- END: patterns -->
+
+<!-- BEGIN: decisions -->
+## 🧠 Decisions
+
+<!-- END: decisions -->
+
+<!-- BEGIN: context -->
+## 📚 Context
+
+<!-- END: context -->
+
+<!-- BEGIN: config -->
+## ⚙️ Config
+
+<!-- END: config -->
+
+<!-- BEGIN: learnings -->
+## 💡 Learnings
+
+<!-- END: learnings -->
+
+<!-- BEGIN: errors -->
+## 🐛 Errors
+
+<!-- END: errors -->
+
+<!-- BEGIN: implementation -->
+## 🛠️ Implementation
+
+<!-- END: implementation -->
+
+<!-- BEGIN: optimization -->
+## ⚡ Optimization
+
+<!-- END: optimization -->
+
+<!-- BEGIN: test -->
+## 🧪 Test
+
+<!-- END: test -->
+
+---
+
+## 📁 Project Structure
+
+```
+{{PROJECT_ROOT}}/
+├── AGENTS.md                    ← This file (multi-tool SSOT)
+├── .agent/                      ← Multi-tool agent config standard
+│   ├── context/                 ← environment.json, project-context.json, session-init.md
+│   └── memory/                  ← index.json + 10 category dirs
+├── .claude/                     ← Claude Code-specific config & adapter
+├── .cursor/, .kiro/, ...        ← Editor-specific stub directories
+└── (project source)
+```
+
+---
+
+## 🔗 Related Files
+
+- `.agent/context/environment.json` — Tech stack version detection (multi-profile)
+- `.agent/context/project-context.json` — Workspace routing & subprojects
+- `.agent/context/session-init.md` — 6-step session initialization protocol
+- `.agent/memory/index.json` — Memory index (10 categories)
+- `.claude/AGENTS.md` — Claude Code-specific adapter (points back here)

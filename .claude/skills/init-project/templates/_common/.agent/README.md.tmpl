@@ -1,0 +1,39 @@
+# .agent/ — Multi-Tool Agent Config Standard
+
+Direktori ini menyimpan konfigurasi dan knowledge base yang digunakan **semua** AI agent tools
+(Claude, Cursor, Kiro, Copilot, dll). Source of truth utama ada di root `../AGENTS.md`.
+
+## Struktur
+
+```
+.agent/
+├── README.md                    ← File ini
+├── context/
+│   ├── environment.json         ← Tech stack versions (multi-profile: windows/linux)
+│   ├── project-context.json     ← Workspace routing, subprojects list
+│   └── session-init.md          ← 6-step initialization protocol
+├── memory/
+│   ├── index.json               ← Memory index (entries + 10 categories)
+│   └── entries/                 ← Knowledge entries per category
+│       ├── config/
+│       ├── context/
+│       ├── decisions/
+│       ├── errors/
+│       ├── gotchas/
+│       ├── implementation/
+│       ├── learnings/
+│       ├── optimization/
+│       ├── patterns/
+│       └── test/
+├── skills/                      ← Modular agent capabilities (task-specific)
+└── workflows/                   ← Operational workflows (.md files)
+```
+
+## Cara Pakai
+
+- **Inisialisasi sesi** → baca `context/session-init.md` terlebih dahulu
+- **Tambah lesson learned** → buat file di `memory/entries/<category>/<date>-<topic>.md`
+- **Update memory index** → edit `memory/index.json`, update `last_updated`
+- **Update AGENTS.md stats** → jalankan `/memory-promote` atau update manual
+
+**Project:** {{PROJECT_NAME}} | **Preset:** {{STACK_PRESET}} | **Init:** {{DATE_INIT}}

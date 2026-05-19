@@ -1,0 +1,47 @@
+# Experiment artifacts
+experiments/
+
+# Knowledge wiki — excluded agar tidak flood context saat code review
+# Akses manual via Read jika butuh entry spesifik
+.claude/wiki/
+
+# Memory dan logs
+.claude/memory/
+.claude/activity.txt
+.claude/session-log.txt
+
+# ─── Vendor & dependencies ────────────────────────────────────────────────────
+node_modules/
+vendor/
+.venv/
+
+# ─── Build & compile outputs ─────────────────────────────────────────────────
+dist/
+build/
+target/
+coverage/
+*.pyc
+__pycache__/
+
+# ─── Framework cache (Next.js / Nuxt / Turbo) ────────────────────────────────
+.next/
+.nuxt/
+.turbo/
+
+# ─── Backup & archived directories ───────────────────────────────────────────
+_backups/
+_archived/
+_quick_backup/
+
+# ─── Log files ────────────────────────────────────────────────────────────────
+*.log
+storage/logs/
+bootstrap/cache/
+
+# ─── Minified assets & source maps (not useful for AI context) ───────────────
+*.min.js
+*.map
+
+# ─── Python tooling cache ─────────────────────────────────────────────────────
+.pytest_cache/
+.mypy_cache/

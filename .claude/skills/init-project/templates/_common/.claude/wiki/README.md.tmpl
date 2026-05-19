@@ -1,0 +1,80 @@
+# Wiki — {{PROJECT_NAME}}
+
+> Knowledge base project ini. Gunakan format `[[ref]]` untuk link antar-entri.
+> Diisi manual atau via `/knowledge-harvest --source <path>`.
+
+---
+
+## Struktur Wiki (10 Kategori)
+
+```
+.claude/wiki/
+├── README.md          ← Ini (index + conventions)
+├── log.md             ← Reverse-chrono harvest/activity log
+├── gotchas/           ← Pitfalls & traps — quick-ref (Problem/RootCause/Solution)
+├── patterns/          ← Reusable code & design patterns (Context/Impl/Validation)
+├── decisions/         ← ADR-light: decision records (Context/Decision/Rationale)
+├── context/           ← Background, sejarah, FYI, info project
+├── config/            ← Setup, env, konfigurasi, install notes
+├── learnings/         ← Lessons learned, insights, discovery
+├── errors/            ← Error & bug catalog (ORA-*, PHP warnings, dll)
+├── implementation/    ← How-it-works, cara kerja komponen
+├── optimization/      ← Performance, caching, tuning notes
+├── test/              ← Test strategy, coverage notes, assertion patterns
+└── entities/          ← Per-entity notes (services, modules, external APIs)
+```
+
+---
+
+## Linking Convention
+
+Gunakan `[[double-bracket]]` untuk wiki refs:
+- `[[gotchas/oracle-oci8-connect]]` → `.claude/wiki/gotchas/oracle-oci8-connect.md`
+- `[[patterns/repository-pattern]]`
+- `[[decisions/use-oracle-over-mysql]]`
+- `[[entities/auth-service]]`
+
+Regular markdown links `[text](url)` untuk external links — tidak dianggap wiki refs.
+
+---
+
+## Cara Pakai
+
+**Tambah entry manual:**
+```
+Buat .claude/wiki/<kategori>/YYYY-MM-DD-<slug>.md
+```
+
+**Harvest dari project lain:**
+```
+/knowledge-harvest --source <path>
+```
+
+**Cek konsistensi:**
+```
+/wiki-lint
+```
+Output: broken refs, orphan files, missing front pages.
+
+**Promote ke parent workspace:**
+```
+/memory-promote gotchas/<filename>
+```
+
+---
+
+## Format Entry per Kategori
+
+| Kategori | Sections |
+|---|---|
+| `gotchas/` | Problem · Root Cause · Solution / Workaround · Prevention |
+| `patterns/` | Context · Implementation · Validation |
+| `decisions/` | Context & Problem · Decision · Rationale · Consequences |
+| `errors/` | Summary · Detail |
+| `learnings/` | Summary · Detail |
+| `config/` | Summary · Detail |
+| `context/` | Summary · Detail |
+| `implementation/` | Summary · Detail |
+| `optimization/` | Summary · Detail |
+| `test/` | Summary · Detail |
+| `entities/` | Summary · Detail |

@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/github-mcp-server"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "claude-in-chrome": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/claude-in-chrome-mcp"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "{{FILESYSTEM_SCOPE}}"]
+    },
+    "sqlite": {
+      "command": "npx",
+      "args": ["-y", "@mokei/mcp-sqlite", "--db", "./experiments/data.db"]
+    },
+    "semble": {
+      "command": "uvx",
+      "args": ["{{SEMBLE_PACKAGE}}", "--root", "{{PROJECT_ROOT}}"]
+    }
+  }
+}

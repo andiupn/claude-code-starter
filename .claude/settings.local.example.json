@@ -1,0 +1,240 @@
+{
+  "_readme": [
+    "Copy file ini ke settings.local.json (tanpa .example) dan sesuaikan dengan OS/setup kamu.",
+    "File ini TIDAK git-ignored — aman untuk di-commit sebagai template.",
+    "settings.local.json ADALAH git-ignored — jangan commit credentials atau path personal di sana.",
+    "Pilih salah satu blok OS di bawah, hapus sisanya, lalu edit path sesuai mesin kamu."
+  ],
+
+  "_security_notes": [
+    "JANGAN gunakan wildcard runtime: Bash(python3 *), Bash(node *), Bash(npm *), Bash(bun *)",
+    "  → Wildcard tsb = arbitrary code execution (Claude bisa run file apa saja di sistem)",
+    "GUNAKAN scope sempit: Bash(python3 ./**/*.py) = hanya file .py di project dir",
+    "  → Bash(python3 -c ...) dan Bash(python3 /tmp/injected.py) akan diblokir",
+    "Untuk tools tertentu, lebih aman gunakan module pattern: Bash(python3 -m pytest *)",
+    "SELALU sertakan deny block: rm -rf dan sudo minimal"
+  ],
+
+  "_choose_your_os": "Hapus semua blok kecuali yang sesuai OS kamu, rename key jadi 'permissions'",
+
+  "permissions_WINDOWS": {
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(D:/Server/xampp/**)",
+      "Read(D:/Server/laragon/**)",
+      "Read(D:/Database/**)",
+
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(composer *)",
+      "Bash(sqlplus *)",
+      "Bash(sqlplus.exe *)",
+      "Bash(lsnrctl *)",
+      "Bash(sc query *)",
+      "Bash(net stop *)",
+      "Bash(net start *)",
+
+      "Bash(powershell -ExecutionPolicy Bypass -File *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write(D:/Server/xampp/htdocs/**)",
+      "Write(D:/Server/laragon/www/**)",
+      "Edit(D:/Server/xampp/htdocs/**)",
+      "Edit(D:/Server/laragon/www/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "D:/Server/xampp/htdocs",
+      "D:/Server/laragon/www"
+    ]
+  },
+
+  "permissions_LINUX": {
+    "_note": "Tested on Fedora 44. Sesuaikan WEB_ROOT dan service names untuk distro lain.",
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(/tmp/**)",
+      "Read(/var/log/**)",
+      "Read(/etc/nginx/**)",
+      "Read(/etc/php/**)",
+      "Read(/etc/php-fpm.d/**)",
+
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(mariadb *)",
+      "Bash(composer *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+
+      "Bash(nginx -t)",
+      "Bash(systemctl status *)",
+      "Bash(systemctl list-units *)",
+      "Bash(journalctl -u * --no-pager -n *)",
+      "Bash(journalctl -u * -f)",
+      "Bash(tail -n * /var/log/**)",
+
+      "Bash(lsnrctl status)",
+      "Bash(sqlplus *)",
+
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(python3 -m uvicorn *)",
+      "Bash(python3 -m flask *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(bun run lint)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write(/var/www/**)",
+      "Edit(/var/www/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(python3 -c *)",
+      "Bash(node -e *)",
+      "Bash(bash -c *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "/var/www"
+    ]
+  },
+
+  "permissions_MACOS": {
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(/tmp/**)",
+      "Read(/var/log/**)",
+      "Read(/usr/local/etc/**)",
+
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(composer *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+
+      "Bash(brew services list)",
+      "Bash(brew services info *)",
+
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(python3 -m uvicorn *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(bun run lint)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(python3 -c *)",
+      "Bash(node -e *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude"
+    ]
+  },
+
+  "permissions_WSL": {
+    "_note": "WSL = Windows Subsystem for Linux. Claude berjalan di WSL tapi akses Windows path via /mnt/c/ dan /mnt/d/",
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(/tmp/**)",
+      "Read(/mnt/d/Server/laragon/**)",
+      "Read(/mnt/d/Server/xampp/**)",
+      "Read(/mnt/d/Database/**)",
+      "Read(/var/log/**)",
+
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(composer *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(python3 -m uvicorn *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(bun run lint)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+
+      "Bash(powershell.exe -Command Get-Service *)",
+      "Bash(powershell.exe -Command Get-Process *)",
+      "Bash(cmd.exe /c sc query *)",
+
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write(/mnt/d/Server/laragon/www/**)",
+      "Edit(/mnt/d/Server/laragon/www/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(python3 -c *)",
+      "Bash(node -e *)",
+      "Bash(bash -c *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "/mnt/d/Server/laragon/www"
+    ]
+  }
+}

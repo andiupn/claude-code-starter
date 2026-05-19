@@ -1,0 +1,42 @@
+# Child Project Notice
+
+> **Inheritance Active:** Project ini merupakan **child project** dari workspace root.
+
+---
+
+## Parent Root
+
+**Parent workspace:** `{{PARENT_ROOT}}`
+
+Rules global dikelola di parent root. Untuk mengubah baseline yang berlaku di semua project, edit file di parent:
+- `{{PARENT_ROOT}}/AGENTS.md` — Multi-tool SSOT
+- `{{PARENT_ROOT}}/.agent/context/session-init.md` — Session protocol
+- `{{PARENT_ROOT}}/.agent/workflows/` — Shared workflows
+
+---
+
+## Scope Lokal Project Ini
+
+File `.claude/` di sini adalah **Claude Code adapter** untuk project lokal. Boleh tambah:
+- `.claude/skills/` — Skill tambahan yang spesifik project ini
+- `.claude/agents/` — Agent tambahan (langka)
+- `.agent/memory/entries/` — Memory lokal project ini
+
+**Tidak boleh** override aturan di parent `AGENTS.md`.
+
+---
+
+## Promote Memory ke Parent
+
+Jika menemukan lesson learned yang relevan lintas-project:
+```
+/memory-promote <category>/<filename>
+```
+
+File akan dipindah ke `{{PARENT_ROOT}}/.agent/memory/entries/<category>/`.
+
+---
+
+**Initialized:** {{DATE_INIT}}
+**Preset:** {{STACK_PRESET}}
+**Parent detected automatically** (via `.claude/scaffold.lock.json` ancestor walk)

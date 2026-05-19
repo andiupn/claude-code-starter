@@ -1,0 +1,198 @@
+{
+  "_readme": [
+    "Copy file ini ke settings.local.json (tanpa .example) dan sesuaikan dengan OS/setup kamu.",
+    "File ini git-tracked (aman di-commit). settings.local.json adalah git-ignored.",
+    "Atau jalankan: /init-project --local-only  → Claude akan auto-detect OS dan generate settings.local.json.",
+    "Pilih salah satu blok OS di bawah, hapus sisanya, rename key ke 'permissions'."
+  ],
+
+  "_security_notes": [
+    "JANGAN gunakan wildcard runtime: Bash(python3 *), Bash(node *), Bash(npm *), Bash(bun *)",
+    "  → Wildcard tsb = arbitrary code execution",
+    "GUNAKAN scope sempit: Bash(python3 ./**/*.py) = hanya file .py di project dir",
+    "SELALU sertakan deny block: rm -rf dan sudo minimal"
+  ],
+
+  "permissions_WINDOWS": {
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read({{PROJECT_ROOT}}/**)",
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(composer *)",
+      "Bash(powershell -ExecutionPolicy Bypass -File *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write({{PROJECT_ROOT}}/**)",
+      "Edit({{PROJECT_ROOT}}/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "{{PROJECT_ROOT}}"
+    ]
+  },
+
+  "permissions_LINUX": {
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(/tmp/**)",
+      "Read({{PROJECT_ROOT}}/**)",
+      "Read(/var/log/**)",
+      "Read(/etc/nginx/**)",
+      "Read(/etc/php/**)",
+      "Read(/etc/php-fpm.d/**)",
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(mariadb *)",
+      "Bash(composer *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+      "Bash(nginx -t)",
+      "Bash(systemctl status *)",
+      "Bash(systemctl list-units *)",
+      "Bash(journalctl -u * --no-pager -n *)",
+      "Bash(journalctl -u * -f)",
+      "Bash(lsnrctl status)",
+      "Bash(sqlplus *)",
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(bun run lint)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write({{PROJECT_ROOT}}/**)",
+      "Edit({{PROJECT_ROOT}}/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(python3 -c *)",
+      "Bash(node -e *)",
+      "Bash(bash -c *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "{{PROJECT_ROOT}}"
+    ]
+  },
+
+  "permissions_MACOS": {
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(/tmp/**)",
+      "Read({{PROJECT_ROOT}}/**)",
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(composer *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+      "Bash(brew services list)",
+      "Bash(brew services info *)",
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(bun run lint)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write({{PROJECT_ROOT}}/**)",
+      "Edit({{PROJECT_ROOT}}/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(python3 -c *)",
+      "Bash(node -e *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "{{PROJECT_ROOT}}"
+    ]
+  },
+
+  "permissions_WSL": {
+    "_note": "WSL: Claude berjalan di Linux tapi akses Windows path via /mnt/c/, /mnt/d/",
+    "allow": [
+      "Read(./**)",
+      "Read(~/.claude/**)",
+      "Read(/tmp/**)",
+      "Read({{PROJECT_ROOT}}/**)",
+      "Bash(git *)",
+      "Bash(php *)",
+      "Bash(mysql *)",
+      "Bash(composer *)",
+      "Bash(bash -n ~/.claude/scripts/statusline.sh)",
+      "Bash(chmod -R u+w .git/)",
+      "Bash(python3 ./**/*.py)",
+      "Bash(python3 -m pytest *)",
+      "Bash(node ./src/*)",
+      "Bash(node ./scripts/*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(bun run lint)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+      "Bash(powershell.exe -Command Get-Service *)",
+      "Bash(cmd.exe /c sc query *)",
+      "Skill(update-config)",
+      "Grep(**)",
+      "Glob(**)",
+      "Monitor(**)",
+      "Write(./experiments/**)",
+      "Write(./.claude/**)",
+      "Edit(./.claude/**)",
+      "Write({{PROJECT_ROOT}}/**)",
+      "Edit({{PROJECT_ROOT}}/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo *)",
+      "Bash(python3 -c *)",
+      "Bash(node -e *)",
+      "Bash(bash -c *)"
+    ],
+    "additionalDirectories": [
+      "~/.claude",
+      "{{PROJECT_ROOT}}"
+    ]
+  }
+}

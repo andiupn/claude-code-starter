@@ -1,0 +1,116 @@
+# {{PROJECT_NAME}} Workspace
+
+**Project Type:** {{PROJECT_TYPE}} — {{STACK_PRESET}}
+**Initialized:** {{DATE_INIT}}
+
+> TODO: Replace this section with your actual project description.
+> What does this project do? Who uses it? What problem does it solve?
+
+## Project Overview
+
+[Describe your project here — what it does, tech stack, key components]
+
+## Workspace Structure
+
+```
+.claude/
+  agents/                    # Specialized subagents (code-reviewer, research-assistant, architecture-reviewer)
+  skills/                    # Reusable skill workflows (/skill-name)
+  wiki/                      # Knowledge base — diisi via /knowledge-harvest atau manual
+  memory/                    # Auto-memory directory (managed by Claude Code)
+  settings.json              # Shared permissions (git-tracked)
+  settings.local.json        # Per-machine permissions (git-ignored)
+  settings.local.example.json  # Template multi-OS: Windows/Linux/macOS/WSL
+.mcp.json                    # MCP server configs (requires GITHUB_TOKEN env var)
+CLAUDE.md                    # This file — workspace rules
+experiments/                 # Ad-hoc experiments (created as needed)
+```
+
+## Behavioral Rules
+
+**DO:**
+- Respond in Indonesian unless code/technical terms require English
+- Ask before creating new top-level directories
+- Keep diffs small; make targeted changes only
+- Use strict typing when writing code
+- Document only the non-obvious WHY, never the WHAT
+
+**NEVER:**
+- Add fallbacks, compatibility hacks, or error handling not explicitly requested
+- Rewrite large sections of code without explicit instruction
+- Add console.log / debug statements unless asked
+- Make assumptions about project structure — ask if unclear
+- Create files in root without asking (exception: CLAUDE.md, README.md)
+
+## Code Conventions (Multi-language)
+
+- Python: prefer stdlib, use `pathlib` over `os.path`, type hints always
+- JavaScript/TypeScript: ESM imports, `const` over `let`, no `var`
+- Shell: `#!/usr/bin/env bash`, `set -euo pipefail` header
+- General: no trailing whitespace, LF line endings
+
+## Cost Awareness & Model Selection
+
+**Context Management:**
+- Monitor statusline (bawah window) → shows real-time context % dan model name
+- **Healthy zone (<60%)**: Lanjut tanpa intervensi
+- **Watch zone (60-80%)**: Awasi, prepare context handoff
+- **Compact zone (>{{COMPACT_THRESHOLD_PCT}}%)**: Trigger `/compact` segera
+
+**Model Tiering:**
+| Task | Model | Why |
+|------|-------|-----|
+| Research (web lookup, synthesis) | Claude Haiku | 67%+ lebih murah, cukup untuk lookup & synthesis |
+| Code review (quality validation) | Claude Sonnet | Balance quality-cost |
+| Main session (reasoning, complex) | Claude Sonnet | Default global |
+
+## Session Init Checklist (Lock at Start)
+
+Sebelum mulai sesi:
+1. Set env: `CLAUDE_CODE_DISABLE_1M_CONTEXT={{DISABLE_1M_CONTEXT}}`, `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE={{COMPACT_THRESHOLD_PCT}}`.
+2. Lock model di awal — jangan switch model mid-task (cache invalidation).
+3. Lock tools/MCP servers — jangan toggle MCP mid-session.
+4. Trigger `/compact` di {{COMPACT_THRESHOLD_PCT}}% untuk cache hit rate ~90%.
+
+## Input Format Optimization (Token Efficiency)
+
+| Standard | Optimized | Savings |
+|---|---|---|
+| Screenshot via computer-use | `agent-browser` CLI for web pages | ~90% |
+| Claude PDF reader | `pdftotext file.pdf -` | Significant |
+| `Read` entire file | Glob → Grep → Read offset | 10-50x untuk file besar |
+| Multi-grep cross-file | Semble MCP (jika installed) | ~98% |
+
+File >500 LOC: Glob → Grep → Read offset (jangan Read full).
+
+## Quick Navigation
+
+| I want to... | Go to... |
+|---|---|
+| **Multi-tool SSOT** | [AGENTS.md](AGENTS.md) — root, semua AI tools |
+| **Claude-specific agents** | [.claude/AGENTS.md](.claude/AGENTS.md) |
+| **Use skills** | [.claude/SKILLS.md](.claude/SKILLS.md) |
+| **Configure permissions** | [.claude/SETTINGS.md](.claude/SETTINGS.md) |
+| **Setup environment** | [.env.example](.env.example) |
+| **Session protocol** | [.agent/context/session-init.md](.agent/context/session-init.md) |
+| **Memory index** | [.agent/memory/index.json](.agent/memory/index.json) |
+| **Track progress** | [.claude/memory/MEMORY.md](.claude/memory/MEMORY.md) |
+| **Wiki knowledge base** | [.claude/wiki/README.md](.claude/wiki/README.md) — 10 kategori: gotchas, patterns, decisions, dll |
+| **Wiki consistency** | `/wiki-lint` — check broken refs, orphans, missing pages |
+| **Harvest knowledge** | `/knowledge-harvest --source <path>` — serap knowledge dari project lain |
+| **Promote memory** | `/memory-promote <cat>/<file>` — share lesson ke parent workspace |
+| **Save session context** | `/context-handoff` — simpan findings ke memory sebelum /compact |
+
+## Troubleshooting Quick-Guide
+
+**Problem: "MCP server github won't start"**
+- Check: Is GITHUB_TOKEN set? → [.env.example](.env.example)
+- Fix: Create .env from .env.example, fill GITHUB_TOKEN, reload terminal
+
+**Problem: "Permission denied on git command"**
+- Check: Does .claude/settings.local.json have "Bash(git *)" in allow list?
+
+**When in doubt:**
+- Check [.claude/AGENTS.md](.claude/AGENTS.md) for agent questions
+- Check [.claude/SKILLS.md](.claude/SKILLS.md) for skill questions
+- See [.claude/SETTINGS.md](.claude/SETTINGS.md) for permission issues

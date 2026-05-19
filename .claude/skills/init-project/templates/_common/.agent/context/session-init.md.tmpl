@@ -1,0 +1,42 @@
+# Session Init Protocol
+
+**Wajib dibaca AI agent saat mulai session baru di project {{PROJECT_NAME}}.**
+
+---
+
+## Step 1: Read Environment
+
+- Read `.agent/context/environment.json`
+- Detect `active_profile` (windows/linux) dan `techStack` versions
+
+## Step 2: Read Project Context
+
+- Read `.agent/context/project-context.json`
+- Catat `workspace_root`, `is_multi_project_root`, `subprojects` list, `default_preset`
+
+## Step 3: Read AGENTS.md SSOT
+
+- Read root `AGENTS.md` (file ini adalah SSOT multi-tool)
+- Catat: Prinsip Multi-Project, Urutan Prioritas, Tech Stack, active Gotchas
+
+## Step 4: Index Memory
+
+- Read `.agent/memory/index.json`
+- Ringkas entries terbaru per kategori (last 5 per category jika tersedia)
+
+## Step 5: Confirm Scope dengan User
+
+- User sebutkan task scope: single file / module / full project
+- AI konfirmasi scope sebelum eksekusi
+- Jika scope tidak jelas: tanya, jangan assume
+
+## Step 6: End-of-Session Protocol
+
+- Jika ada lesson learned baru: buat file di `.agent/memory/entries/<category>/<date>-<topic>.md`
+- Format nama file: `YYYY-MM-DD-topik-singkat.md`
+- Update `.agent/memory/index.json`: tambah entry, update `last_updated`
+- Jika entry layak di-share ke workspace root: gunakan `/memory-promote` skill
+
+---
+
+**Project:** {{PROJECT_NAME}} | **Preset:** {{STACK_PRESET}} | **Root:** `{{PROJECT_ROOT}}`

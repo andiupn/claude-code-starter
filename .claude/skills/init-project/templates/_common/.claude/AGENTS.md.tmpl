@@ -1,0 +1,60 @@
+> **Claude Code Adapter** — File ini adalah Claude Code-specific configuration.
+> Root SSOT multi-tool ada di: [`../AGENTS.md`](../AGENTS.md) — baca itu dulu sebelum file ini.
+
+---
+
+# Agents: Specialized Claude Instances
+
+## Agent Inventory
+
+| Agent Name | Description | Model | Cost Tier | Tools | When to Use | When NOT to Use |
+|---|---|---|---|---|---|---|
+| **code-reviewer** | Read-only code quality, security validation, and review | Sonnet | 1x | Read, Grep, Glob | Before committing risky changes, security audit | Real-time pair programming, active implementation |
+| **research-assistant** | Technical research, API exploration, decision support | Haiku | 0.4x | WebSearch, WebFetch, Read, Glob | Need to research new library or API design decision | Have full domain knowledge already, need deep reasoning |
+| **architecture-reviewer** | Module design, dependency boundaries, architectural patterns | Sonnet | 1x | Read, Grep, Glob | Design review, circular dependency check, large refactoring | Line-level code review (use code-reviewer), single function review |
+
+---
+
+## Decision Matrix: When to Use Which Agent?
+
+| Task Type | code-reviewer | architecture-reviewer | research-assistant | Main Session |
+|---|---|---|---|---|
+| **Code Review** | ✅ YES | ❌ No | ❌ No | Maybe (simple changes) |
+| **Security Audit** | ✅ YES | ❌ No | ❌ No | No |
+| **API Research** | ❌ No | ❌ No | ✅ YES | Maybe (familiar API) |
+| **Library Comparison** | ❌ No | ❌ No | ✅ YES | Maybe (need reasoning) |
+| **Implementation** | ❌ No | ❌ No | ❌ No | ✅ YES |
+| **Architecture Design** | ❌ No | ✅ YES | Maybe | ✅ YES |
+| **Module Boundaries** | ❌ No | ✅ YES | ❌ No | Maybe |
+
+---
+
+## Invocation Guide
+
+```
+@code-reviewer: Review the authentication logic in src/auth.ts for security issues
+```
+```
+@research-assistant: What are the trade-offs between React Query and SWR for data fetching?
+```
+```
+@architecture-reviewer: Review the module structure in src/ — ada circular dependency?
+```
+
+---
+
+## Cost Impact
+
+| Agent | Model | Relative Cost |
+|---|---|---|
+| code-reviewer | Sonnet | ~1.0x (balanced, thinking +20-40%) |
+| research-assistant | Haiku | ~0.4x (cheap) |
+| architecture-reviewer | Sonnet | ~1.0x (balanced, thinking +20-40%) |
+
+---
+
+## Related Documentation
+
+- **All Skills:** See [SKILLS.md](SKILLS.md)
+- **Settings & Permissions:** See [SETTINGS.md](SETTINGS.md)
+- **Workspace Context:** See [CLAUDE.md](../CLAUDE.md)

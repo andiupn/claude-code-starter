@@ -1,0 +1,66 @@
+# Skills: Reusable Workflow Automation
+
+## Skill Inventory
+
+| Skill Name | Trigger | Tools Used | Description |
+|---|---|---|---|
+| **git-workflow** | `/git-workflow` | Bash, Read | Structured commit, branch management, safe push |
+| **experiment-scaffold** | `/experiment-scaffold` | Bash, Write | Auto-setup new experiment folder with README template |
+| **test-writer** | `/test-writer` | Read, Write | Auto-generate unit tests based on function signatures |
+| **validate-agent-config** | `/validate-agent-config` | Read, Glob, Grep | Validasi parity AGENTS.md vs agent definition files |
+| **wiki-lint** | `/wiki-lint` | Read, Grep, Glob | Cek broken [[refs]], orphan files, missing front pages di .claude/wiki/ |
+| **memory-promote** | `/memory-promote` | Read, Write, Bash | Promote memory entry dari project lokal ke parent workspace root |
+| **knowledge-harvest** | `/knowledge-harvest` | Read, Write, Glob, Grep, Bash | Serap knowledge dari project AI agent lain ke wiki repo ini |
+| **context-handoff** | `/context-handoff` | Read, Write, Bash | Simpan ringkasan session ke memory sebelum /compact agar findings tidak hilang |
+| **stack-debug** | `/stack-debug` | Bash, Read, Grep | Health check web/mobile stack — status, ports, recent errors |
+| **log-monitor** | `/log-monitor` | Bash, Read, Monitor | Stream log file realtime, filter pattern, stop on condition |
+| **ui-test** | `/ui-test` | Chrome MCP, Read | Smoke test UI flow via browser, screenshot per step |
+
+> Note: `stack-debug`, `log-monitor`, dan `ui-test` tersedia tergantung preset stack yang dipilih saat scaffold.
+> Untuk preset `generic`, hanya 4 skill generik + wiki-lint + memory-promote + knowledge-harvest yang tersedia (semua universal — tidak bergantung stack).
+
+---
+
+## Decision Matrix
+
+| Scenario | Skill |
+|---|---|
+| "I want to commit my changes cleanly" | **git-workflow** |
+| "I'm starting a new experiment/feature" | **experiment-scaffold** |
+| "I need unit tests for this function" | **test-writer** |
+| "Saya baru edit agent rules, mau verify konsisten" | **validate-agent-config** |
+| "Ada broken link di wiki atau file orphan?" | **wiki-lint** |
+| "Mau promote lesson learned ke parent workspace" | **memory-promote** |
+| "Cek semua service web stack masih berjalan?" | **stack-debug** |
+| "Ada error di server, mau lihat log realtime" | **log-monitor** |
+| "Test apakah UI login flow masih berfungsi?" | **ui-test** |
+| "Mau serap knowledge dari project lama ke wiki" | **knowledge-harvest** |
+| "Context hampir penuh, mau compact tapi jangan kehilangan progress" | **context-handoff** |
+
+---
+
+## Invocation Syntax
+
+```
+/git-workflow
+
+Commit message: "refactor: simplify auth middleware"
+```
+
+```
+/experiment-scaffold
+
+Name: user-segmentation
+```
+
+```
+/validate-agent-config
+```
+
+---
+
+## Related Documentation
+
+- **Agents:** See [AGENTS.md](AGENTS.md)
+- **Settings:** See [SETTINGS.md](SETTINGS.md)
+- **Workspace:** See [CLAUDE.md](../CLAUDE.md)

@@ -1,0 +1,2 @@
+# Generic preset — no stack-specific overlays.
+# Only _common/ templates are applied for this preset.
