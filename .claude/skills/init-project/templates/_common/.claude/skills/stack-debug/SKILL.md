@@ -93,7 +93,7 @@ curl -s -o /dev/null -w "%{time_total}" http://localhost
 mysql -u root --connect-timeout=2 -e "SELECT 1" 2>&1
 
 # Oracle (jika ada)
-[ -n "$ORACLE_SID" ] && sqlplus -S system/REDACTED_PASSWORD@localhost:1521/orcl <<< "SELECT 1 FROM DUAL;" 2>&1
+[ -n "$ORACLE_SID" ] && [ -n "$ORACLE_PASS" ] && sqlplus -S "system/${ORACLE_PASS}@localhost:1521/orcl" <<< "SELECT 1 FROM DUAL;" 2>&1  # Set ORACLE_PASS di .env
 ```
 
 ---
@@ -131,7 +131,7 @@ tail -n 50 /d/Server/laragon/logs/error.log 2>/dev/null
 ```bash
 curl -s -o /dev/null -w "%{time_total}" http://localhost
 mysql -u root --connect-timeout=2 -e "SELECT 1" 2>&1
-sqlplus -S system/REDACTED_PASSWORD@localhost:1521/orcl <<< "SELECT 1 FROM DUAL;" 2>&1
+[ -n "$ORACLE_PASS" ] && sqlplus -S "system/${ORACLE_PASS}@localhost:1521/orcl" <<< "SELECT 1 FROM DUAL;" 2>&1
 ```
 
 ---
