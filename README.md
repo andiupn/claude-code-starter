@@ -1,124 +1,145 @@
-# Starter Template Claude — LITE Edition
+# Starter Template Claude — LITE Edition 🚀
 
-**Simple, beginner-friendly Claude Code workspace template** dengan 3 core agents + 6 essential skills. Cocok untuk yang baru kenal Claude Code dan ingin start project baru dengan rules yang clean.
+<div align="center">
+  <strong>English</strong> | <a href="README.id.md">Bahasa Indonesia</a>
+</div>
 
-> 📦 Free template by **andiupn** ([kuncimu.com](https://kuncimu.com)) · Licensed under [MIT + Attribution](LICENSE.md)
-> ☕ If useful, [buy me a coffee](https://ko-fi.com/andiupn) · 🚀 Need more features? Try [PRO version](https://kuncimu.com)
+<br />
+
+**A simple, beginner-friendly Claude Code workspace template with 3 core agents and 6 essential skills.**
+
+> 📦 Free template by **andiupn** ([kuncimu.com](https://kuncimu.com)) · Licensed under [MIT + Attribution](LICENSE.md)  
+> ☕ If useful, [buy me a coffee](https://ko-fi.com/andiupn) · 🚀 Need more features? Try the [PRO version](https://kuncimu.com)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+[![GitHub release](https://img.shields.io/github/v/release/andiupn/claude-code-starter)](https://github.com/andiupn/claude-code-starter/releases)
+[![Ko-Fi](https://img.shields.io/badge/Ko--fi-Support-ff5f5f?logo=ko-fi)](https://ko-fi.com/andiupn)
+[![Patreon](https://img.shields.io/badge/Patreon-Support-f96854?logo=patreon)](https://patreon.com/AndiUpn)
+[![Trakteer](https://img.shields.io/badge/Trakteer-Support-red?logo=trakteer)](https://trakteer.id/andi_upn/gift)
+[![Saweria](https://img.shields.io/badge/Saweria-Support-yellow?logo=saweria)](https://saweria.co/andiupn)
 
 ---
 
-## What's Inside
+## 📦 What's Inside
 
-| Komponen | Jumlah |
-|---|---|
-| Specialized agents | 3 |
-| Workflow skills | 6 |
-| MCP servers | 3 (minimal) |
-| Stack preset | 1 (generic) |
+| Component | Quantity | Description |
+|---|---|---|
+| Specialized agents | 3 | Specialized roles for review and research |
+| Workflow skills | 6 | Reusable command-line automations |
+| MCP servers | 3 (minimal) | Core integration protocols |
+| Stack preset | 1 (generic) | Clean workspace preset rules |
 
-## Quick Start (3 langkah)
+---
+
+## 🚀 Quick Start (3 Steps)
 
 ```bash
 # 1. Setup environment
 cp .env.example .env
-# Edit .env, isi GITHUB_TOKEN
+# Edit .env and fill in your GITHUB_TOKEN
 
 # 2. Setup permissions
 cp .claude/settings.local.example.json .claude/settings.local.json
-# Edit sesuai OS (Linux/macOS/Windows)
+# Edit according to your OS (Linux/macOS/Windows)
 
 # 3. Customize CLAUDE.md
-# Replace {{PROJECT_NAME}} dengan nama project Anda
+# Replace {{PROJECT_NAME}} with your project's name
 ```
 
-Buka folder ini di Claude Code, lalu mulai coding!
-
-## Agents (3)
-
-| Agent | Untuk apa |
-|---|---|
-| `@code-reviewer` | Review kode sebelum commit |
-| `@research-assistant` | Riset library/API (pakai Haiku, hemat) |
-| `@architecture-reviewer` | Review struktur modul |
-
-## Skills (6)
-
-```
-/git-workflow          # commit terstruktur + safety check
-/experiment-scaffold   # buat folder experiment baru
-/test-writer           # generate unit test
-/validate-agent-config # cek agent config valid
-/context-handoff       # save context sebelum /compact
-/init-project          # scaffold rules ke project baru (preset: generic)
-```
-
-## Folder Structure
-
-```
-.claude/         # Claude Code config (agents, skills, wiki, settings)
-src/             # Your code here
-docs/            # Optional: research/, plans/, templates/
-```
-
-Tambahkan struktur sesuai kebutuhan project Anda (web app? CLI tool? library?).
-
-## Behavioral Rules (Default)
-
-- Keep diffs small, targeted changes only
-- Document only the WHY (not the WHAT)
-- Ask before creating new top-level dirs
-- Never commit tanpa konfirmasi user
-
-Detail lengkap di [CLAUDE.md](CLAUDE.md).
-
-## Documentation
-
-| File | Isi |
-|---|---|
-| [CLAUDE.md](CLAUDE.md) | Workspace rules dan conventions |
-| [.claude/AGENTS.md](.claude/AGENTS.md) | Cara pakai 3 agents |
-| [.claude/SKILLS.md](.claude/SKILLS.md) | Daftar 6 skills + when-to-use |
-| [COMPARISON.md](COMPARISON.md) | LITE vs PRO — fitur yang ditambahkan di PRO |
-| [LICENSE.md](LICENSE.md) | MIT License + Attribution clause |
+Open this folder in Claude Code, and start coding!
 
 ---
 
-## Credits & Attribution
+## 🤖 Agents (3)
 
-This template created by **andiupn**.
-
-- 🌐 Website: [kuncimu.com](https://kuncimu.com)
-- 💻 GitHub: [github.com/andiupn](https://github.com/andiupn)
-- ✉️ Email: andi.upn@gmail.com
-
-**Attribution requirement:** Jika Anda redistribute/fork template ini, harap pertahankan credit block ini di CLAUDE.md & README.md (sesuai [LICENSE.md](LICENSE.md)).
-
-## Support This Project ☕
-
-Template ini gratis dan open-source. Jika bermanfaat, pertimbangkan untuk mendukung:
-
-| Platform | Link |
+| Agent | Purpose |
 |---|---|
-| ☕ Ko-fi (one-time / monthly) | [ko-fi.com/andiupn](https://ko-fi.com/andiupn) |
-| 🎨 Patreon (monthly) | [patreon.com/AndiUpn](https://patreon.com/AndiUpn) |
-| 🇮🇩 Trakteer (Indonesia) | [trakteer.id/andi_upn](https://trakteer.id/andi_upn) |
-| 🇮🇩 Saweria (Indonesia) | [saweria.co/andiupn](https://saweria.co/andiupn) |
+| `@code-reviewer` | Review code changes before committing |
+| `@research-assistant` | Research libraries and APIs (runs on cost-effective Haiku) |
+| `@architecture-reviewer` | Review modular and architectural design |
 
-Donasi Anda membantu maintenance + improvement template ini ❤️
+---
 
-## Upgrade to PRO
+## ⚡ Skills (6)
 
-LITE version dibatasi 3 agents, 6 skills, 1 preset. Untuk fitur lengkap:
+```
+/git-workflow          # Structured commits + automated safety checks
+/experiment-scaffold   # Scaffolds isolated experiment folders
+/test-writer           # Generates clean unit tests
+/validate-agent-config # Validates agent configurations and indexes
+/context-handoff       # Saves active workspace context before running /compact
+/init-project          # Scaffolds rules for a new project (Preset: generic)
+```
 
-| LITE (gratis) | PRO ($1-5) |
+---
+
+## 📂 Folder Structure
+
+```
+.claude/         # Claude Code config (agents, skills, wiki, settings)
+src/             # Your source code goes here
+docs/            # Optional: research/, plans/, and templates/
+```
+
+Add your own custom directory structures based on your project requirements (web app, CLI, library, etc.).
+
+---
+
+## 📐 Behavioral Rules (Default)
+
+- Keep diffs small, making targeted changes only
+- Document only the "WHY" (never the "WHAT")
+- Ask for user confirmation before creating new top-level directories
+- Never commit code changes without explicit user confirmation
+
+Full workspace rules can be found in [CLAUDE.md](CLAUDE.md).
+
+---
+
+## 📖 Documentation
+
+| File | Description |
+|---|---|
+| [CLAUDE.md](CLAUDE.md) | Workspace rules and coding conventions |
+| [.claude/AGENTS.md](.claude/AGENTS.md) | Standard guides on how to utilize the 3 specialized agents |
+| [.claude/SKILLS.md](.claude/SKILLS.md) | Complete descriptions of the 6 skills and when to use them |
+| [COMPARISON.md](COMPARISON.md) | Detailed feature comparison between LITE and PRO |
+| [LICENSE.md](LICENSE.md) | MIT License with attribution clause |
+
+---
+
+## 💎 Upgrade to PRO
+
+The LITE version is limited to 3 agents, 6 skills, and 1 preset. For professional development and agency-level features:
+
+| LITE (Free) | PRO ($1-5) |
 |---|---|
 | 3 agents | 5 agents (+ planner, security-reviewer) |
-| 6 skills | 17 skills (+ knowledge mgmt, stack-debug, etc.) |
-| 1 preset (generic) | 10 presets (PHP, Node, Next.js, Flutter, RN, Yii, dll) |
+| 6 skills | 17 skills (+ knowledge management, stack debug, etc.) |
+| 1 preset (generic) | 10 presets (PHP, Node, Next.js, Flutter, RN, Yii, etc.) |
 | 3 MCP servers | 6 MCP servers |
-| No hooks | Hooks (env-guard, tsc-check) |
-| Simple struktur | Status-first multi-project (active/staging/archive) |
+| No git hooks | Pre-configured Git hooks (env-guard, tsc-check) |
+| Simple structure | Status-first multi-project monorepo (`active/`, `staging/`, etc.) |
 
-👉 **[Get PRO at kuncimu.com](https://kuncimu.com)**
+👉 **[Get the PRO Edition at kuncimu.com](https://kuncimu.com)** · Full details: [COMPARISON.md](COMPARISON.md)
 
-Detail lengkap: [COMPARISON.md](COMPARISON.md)
+---
+
+## 💖 Support This Project (Donations)
+
+This template is free and open-source. If it helped you, consider supporting:
+- **Ko-fi:** [ko-fi.com/andiupn](https://ko-fi.com/andiupn)
+- **Patreon:** [patreon.com/AndiUpn](https://patreon.com/AndiUpn)
+- **Trakteer:** [trakteer.id/andi_upn/gift](https://trakteer.id/andi_upn/gift)
+- **Saweria:** [saweria.co/andiupn](https://saweria.co/andiupn)
+
+---
+
+## 🤝 Credits & Attribution
+
+This template is created by **andiupn**.
+- 🌐 Website: [kuncimu.com](https://kuncimu.com)
+- 💻 GitHub: [github.com/andiupn](https://github.com/andiupn)
+- ✉️ Email: [andi.upn@gmail.com](mailto:andi.upn@gmail.com)
+
+**Attribution requirement:** If you redistribute or fork this template, please keep this credit block in `CLAUDE.md` and `README.md` (as per [LICENSE.md](LICENSE.md)).
