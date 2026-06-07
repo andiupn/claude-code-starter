@@ -14,7 +14,7 @@
 </div>
 
 > 📦 Free template by **andiupn** ([kuncimu.com](https://kuncimu.com)) · Licensed under [MIT + Attribution](LICENSE.md)  
-> ☕ Jika bermanfaat, [beli saya kopi](https://ko-fi.com/andiupn) · 🚀 Butuh monorepo canggih? Coba [versi PRO](https://kuncimu.com)
+> ☕ Jika bermanfaat, [beli saya kopi](https://ko-fi.com/andiupn) · 🚀 Butuh monorepo canggih? Coba [versi PRO](https://github.com/sponsors/andiupn?frequency=monthly)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![GitHub release](https://img.shields.io/github/v/release/andiupn/claude-code-starter)](https://github.com/andiupn/claude-code-starter/releases)
@@ -62,7 +62,7 @@ Edisi LITE dibatasi untuk 3 agen, 6 skills, dan 1 preset. Untuk pengembangan ska
 | Tanpa git hooks | Git hooks terintegrasi (env-guard, tsc-check) |
 | Struktur sederhana | Monorepo multi-proyek status-first (`active/`, `staging/`, dll.) |
 
-👉 **[Dapatkan Edisi PRO di kuncimu.com](https://kuncimu.com)** · Detail lengkap: [COMPARISON.md](COMPARISON.md)
+👉 **[Dapatkan Edisi PRO di GitHub Sponsors](https://github.com/sponsors/andiupn?frequency=monthly)** · Detail lengkap: [COMPARISON.md](COMPARISON.md)
 
 ---
 

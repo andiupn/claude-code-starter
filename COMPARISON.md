@@ -82,7 +82,7 @@
 | Commercial use | ✅ | ✅ |
 | Refund | N/A (free) | ❌ |
 | Email Q&A | Community / best-effort | Best-effort (no SLA) |
-| Updates | Via GitHub | Via kuncimu.com |
+| Updates | Via GitHub | Via [GitHub Sponsors](https://github.com/sponsors/andiupn?frequency=monthly) |
 
 ---
 
@@ -109,7 +109,7 @@
 
 Sudah pakai LITE dan mau upgrade?
 
-1. Beli PRO di [kuncimu.com](https://kuncimu.com) (hanya $1–5)
+1. Beli PRO di [GitHub Sponsors](https://github.com/sponsors/andiupn?frequency=monthly) (hanya $1–5)
 2. Download PRO repo
 3. Copy file project Anda yang sudah ada ke struktur PRO
 4. Migrasi config CLAUDE.md (placeholder akan match)
@@ -126,4 +126,4 @@ Tidak ada lock-in — Anda boleh kembali ke LITE kapan saja (LICENSE PRO tetap v
 
 ---
 
-👉 **[Get PRO at kuncimu.com](https://kuncimu.com)**
+👉 **[Get PRO on GitHub Sponsors](https://github.com/sponsors/andiupn?frequency=monthly)**

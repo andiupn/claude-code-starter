@@ -2,7 +2,7 @@
 
 > 📦 **Built with [Claude Code Starter Template — LITE](https://github.com/andiupn)** by **andiupn** (free, MIT licensed)
 > 🔗 [github.com/andiupn](https://github.com/andiupn) · ✉️ andi.upn@gmail.com
-> ☕ If useful, support via [ko-fi.com/andiupn](https://ko-fi.com/andiupn) · 🚀 Need more? Get [PRO version](https://kuncimu.com) (lebih lengkap)
+> ☕ If useful, support via [ko-fi.com/andiupn](https://ko-fi.com/andiupn) · 🚀 Need more? Get [PRO version](https://github.com/sponsors/andiupn?frequency=monthly) (lebih lengkap)
 
 Workspace simple untuk project ini — dirancang ringan dan beginner-friendly. Tambahkan struktur sesuai kebutuhan project Anda.
 
@@ -89,7 +89,7 @@ Customize per language project Anda. Beberapa default umum:
 
 LITE version ini sengaja minimal untuk pemula. Untuk fitur lengkap (10 stack presets, security review agent, planner, knowledge harvesting, wiki management), upgrade ke PRO version:
 
-👉 **[Get PRO at kuncimu.com](https://kuncimu.com)** — hanya $1-5
+👉 **[Get PRO on GitHub Sponsors](https://github.com/sponsors/andiupn?frequency=monthly)** — hanya $1-5
 
 Lihat [COMPARISON.md](COMPARISON.md) untuk detail perbedaan LITE vs PRO.
 

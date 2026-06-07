@@ -14,7 +14,7 @@
 </div>
 
 > 📦 Free template by **andiupn** ([kuncimu.com](https://kuncimu.com)) · Licensed under [MIT + Attribution](LICENSE.md)  
-> ☕ If useful, [buy me a coffee](https://ko-fi.com/andiupn) · 🚀 Need advanced monorepos? Try the [PRO version](https://kuncimu.com)
+> ☕ If useful, [buy me a coffee](https://ko-fi.com/andiupn) · 🚀 Need advanced monorepos? Try the [PRO version](https://github.com/sponsors/andiupn?frequency=monthly)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 [![GitHub release](https://img.shields.io/github/v/release/andiupn/claude-code-starter)](https://github.com/andiupn/claude-code-starter/releases)
@@ -62,7 +62,7 @@ The LITE version is limited to 3 agents, 6 skills, and 1 preset. For professiona
 | No git hooks | Pre-configured Git hooks (env-guard, tsc-check) |
 | Simple structure | Status-first multi-project monorepo (`active/`, `staging/`, etc.) |
 
-👉 **[Get the PRO Edition at kuncimu.com](https://kuncimu.com)** · Full details: [COMPARISON.md](COMPARISON.md)
+👉 **[Get the PRO Edition on GitHub Sponsors](https://github.com/sponsors/andiupn?frequency=monthly)** · Full details: [COMPARISON.md](COMPARISON.md)
 
 ---
 
