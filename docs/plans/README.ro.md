@@ -1,7 +1,7 @@
-# Plans — Working Memory
+# Planuri — Memoria de lucru
 
 <div align="center">
-  <strong>English</strong> | <a href="README.id.md">Bahasa Indonesia</a> | <a href="README.zh.md">简体中文</a> | <a href="README.hi.md">हिन्दी</a> | <a href="README.fr-ca.md">Français (CA)</a> | <a href="README.de.md">Deutsch</a> | <a href="README.fr.md">Français</a> | <a href="README.pt-br.md">Português (BR)</a> | <a href="README.vi.md">Tiếng Việt</a> | <a href="README.pl.md">Polski</a> | <a href="README.ja.md">日本語</a> | <a href="README.ko.md">한국어</a> | <a href="README.es.md">Español</a> | <a href="README.tr.md">Türkçe</a> | <a href="README.it.md">Italiano</a> | <a href="README.ru.md">Русский</a> | <a href="README.uk.md">Українська</a> | <a href="README.nl.md">Nederlands</a> | <a href="README.sv.md">Svenska</a> | <a href="README.ro.md">Română</a>
+  <a href="README.md">English</a> | <a href="README.id.md">Bahasa Indonesia</a> | <a href="README.zh.md">简体中文</a> | <a href="README.hi.md">हिन्दी</a> | <a href="README.fr-ca.md">Français (CA)</a> | <a href="README.de.md">Deutsch</a> | <a href="README.fr.md">Français</a> | <a href="README.pt-br.md">Português (BR)</a> | <a href="README.vi.md">Tiếng Việt</a> | <a href="README.pl.md">Polski</a> | <a href="README.ja.md">日本語</a> | <a href="README.ko.md">한국어</a> | <a href="README.es.md">Español</a> | <a href="README.tr.md">Türkçe</a> | <a href="README.it.md">Italiano</a> | <a href="README.ru.md">Русский</a> | <a href="README.uk.md">Українська</a> | <a href="README.nl.md">Nederlands</a> | <a href="README.sv.md">Svenska</a> | <strong>Română</strong>
 </div>
 
 
@@ -13,18 +13,18 @@ Folder ini berisi **plan implementasi** sebelum coding dimulai. Tujuannya:
 ## Kapan Pakai Folder Ini?
 
 ✅ **Ya, simpan di sini:**
-- Implementation plan untuk fitur non-trivial (>1 hari kerja)
-- Refactor plan dengan banyak file terdampak
-- Migration plan (database, framework version, dsb)
-- Output dari `Plan` mode / `architecture-reviewer`
+- Planul de implementare untuk fitur non-trivial (>1 hari kerja)
+- Planul de refactorare a unui fișier de banyak terdampak
+- Plan de migrare (bază de date, versiune cadru, dsb)
+- Ieșire dari modul `Plan` / `architecture-reviewer`
 
 ❌ **Bukan di sini:**
-- Plan untuk task trivial (<1 jam) — cukup di TodoWrite
+- Planificați o activitate trivială (<1 blocaj) - cukup di TodoWrite
 - Eksperimen / spike — itu masuk `experiments/`
 - Riset eksplorasi → `docs/research/`
-- Keputusan immutable yang hasil dari plan → `.claude/wiki/decisions/`
+- Keputusan imuabil yang hasil dari plan → `.claude/wiki/decisions/`
 
-## Naming Convention
+## Convenția de denumire
 
 ```
 PLAN-YYYYMMDD-<kebab-slug>.md
@@ -32,7 +32,7 @@ PLAN-YYYYMMDD-<kebab-slug>.md
 
 Contoh: `PLAN-20260507-migrasi-laravel-12.md`
 
-## Workflow
+## Flux de lucru
 
 ```
 1. Buat file        → /plan-new atau copy dari docs/templates/plan.md
@@ -43,9 +43,9 @@ Contoh: `PLAN-20260507-migrasi-laravel-12.md`
 6. Archive          → docs/plans/_archive/ jika >6 bulan tidak relevan
 ```
 
-## Status Flow
+## Flux de stare
 
-| Status | Arti |
+| Stare | Arti |
 |---|---|
 | `draft` | Plan masih dirancang, belum disetujui |
 | `active` | Plan disetujui & sedang dieksekusi |
@@ -55,12 +55,12 @@ Contoh: `PLAN-20260507-migrasi-laravel-12.md`
 
 ## Frontmatter Wajib
 
-Lihat [docs/templates/plan.md](../templates/plan.md). Field penting:
+Lihat [docs/templates/plan.md](../templates/plan.md). Câmp petent:
 - `status` — untuk filter
 - `related` — link ke riset / ADR / plan lain
 - `promoted_to` — link ke ADR kalau hasil plan dipromote
 
-## Cara Cari Plan
+## Plan Cara Cari
 
 ```bash
 # Plan draft/active (frontmatter-only, tidak false-positive ke README)
